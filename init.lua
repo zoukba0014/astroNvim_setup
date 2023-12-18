@@ -51,6 +51,16 @@ return {
     -- enable servers that you already have installed without mason
     servers = {
       -- "pyright"
+      "solidity"
+    },
+    config = {
+      solidity = function()
+      return {
+        cmd = {'nomicfoundation-solidity-language-server', '--stdio'};
+        filetypes = {'solidity'};
+        root_dir = require("lspconfig.util").root_pattern("foundry.toml");
+        }
+      end,
     },
   },
 
